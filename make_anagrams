@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'anagrams'
+puts Anagrams.display_in_groups(ARGV)
