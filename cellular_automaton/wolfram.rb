@@ -4,7 +4,6 @@
 module Wolfram
   
   class Rule
-    # Should probably generate these
     NEIGHBORHOODS = [ [0,0,0],
                       [0,0,1],
                       [0,1,0],
