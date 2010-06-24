@@ -32,11 +32,10 @@ module Wolfram
     end
     
     def process(input)
-      cells = Cells.new(input)
-      output = cells.neighborhoods.map do |neighborhood|
+      cells = Cells.new([0] + input + [0])
+      cells.neighborhoods.map do |neighborhood|
         @active_neighborhoods.include?(neighborhood) ? 1 : 0
       end
-      [0] + output + [0]
     end
   end
   
