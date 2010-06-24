@@ -25,15 +25,15 @@ describe Wolfram::Rule do
       let(:rule) { Wolfram::Rule.new([ [0,0,0] ]) }
       
       it "converts a single-cell entry correctly" do
-        rule.process([0]).should == [1,1,1]
-        rule.process([1]).should == [0,0,0]
+        rule.process([0]).should == [1]
+        rule.process([1]).should == [0]
       end
       
       it "converts a two-cell entry correctly" do
-        rule.process([0,0]).should == [1,1,1,1]
-        rule.process([0,1]).should == [1,0,0,0]
-        rule.process([1,0]).should == [0,0,0,1]
-        rule.process([1,1]).should == [0,0,0,0]
+        rule.process([0,0]).should == [1,1]
+        rule.process([0,1]).should == [0,0]
+        rule.process([1,0]).should == [0,0]
+        rule.process([1,1]).should == [0,0]
       end
     end
     
@@ -41,26 +41,26 @@ describe Wolfram::Rule do
       let(:rule) { Wolfram::Rule.new([ [0,1,1], [1,0,1] ]) }
       
       it "converts a single-cell entry correctly" do
-        rule.process([0]).should == [0,0,0]
-        rule.process([1]).should == [0,0,0]
+        rule.process([0]).should == [0]
+        rule.process([1]).should == [0]
       end
       
       it "converts a two-cell entry correctly" do
-        rule.process([0,0]).should == [0,0,0,0]
-        rule.process([0,1]).should == [0,0,0,0]
-        rule.process([1,0]).should == [0,0,0,0]
-        rule.process([1,1]).should == [0,1,0,0]
+        rule.process([0,0]).should == [0,0]
+        rule.process([0,1]).should == [0,0]
+        rule.process([1,0]).should == [0,0]
+        rule.process([1,1]).should == [1,0]
       end
       
       it "converts a three-cell entry correctly" do
-        rule.process([0,0,0]).should == [0,0,0,0,0]
-        rule.process([0,0,1]).should == [0,0,0,0,0]
-        rule.process([0,1,0]).should == [0,0,0,0,0]
-        rule.process([0,1,1]).should == [0,0,1,0,0]
-        rule.process([1,0,0]).should == [0,0,0,0,0]
-        rule.process([1,0,1]).should == [0,0,1,0,0]
-        rule.process([1,1,0]).should == [0,1,0,0,0]
-        rule.process([1,1,1]).should == [0,1,0,0,0]
+        rule.process([0,0,0]).should == [0,0,0]
+        rule.process([0,0,1]).should == [0,0,0]
+        rule.process([0,1,0]).should == [0,0,0]
+        rule.process([0,1,1]).should == [0,1,0]
+        rule.process([1,0,0]).should == [0,0,0]
+        rule.process([1,0,1]).should == [0,1,0]
+        rule.process([1,1,0]).should == [1,0,0]
+        rule.process([1,1,1]).should == [1,0,0]
       end
     end
   end

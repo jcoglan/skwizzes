@@ -22,7 +22,7 @@ begin
   
   steps.times do |i|
     print_cells[input, i]
-    input = rule.process(input)
+    input = rule.process([0] + input + [0])
   end
   
 rescue Oyster::HelpRendered
